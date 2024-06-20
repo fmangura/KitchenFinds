@@ -6,7 +6,7 @@ import qs from 'qs';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies(null, { path: '/' });
 
-const BACKEND_API_URI = 'http://localhost:3001';
+const BACKEND_API_URI = process.env.BACKEND_API_URI
 
 class backend {  
     static user_token = cookies.get('user_token') || ""
