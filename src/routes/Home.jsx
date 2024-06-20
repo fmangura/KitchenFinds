@@ -32,10 +32,10 @@ export default function Home () {
         setSearch(value)
     }
 
-    const addIngredient = (e) => {
+    const addIngredient = async (e) => {
         e.preventDefault()
         if (!search) return
-        changeSuggestions()
+        await changeSuggestions()
         setIngredientList(ingredientsList => ({...ingredientsList, [search]: null}))
         setSearch('')
     }
