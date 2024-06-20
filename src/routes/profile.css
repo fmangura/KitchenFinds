@@ -1,0 +1,132 @@
+.user-recipe-list{
+    display: flex;
+    width: 50%;
+    height: 450px;
+    overflow-y: scroll;
+    border-radius: 5px;
+    border: 3px solid #3e3330;
+    margin-top: 50px;
+    z-index: 1;
+    flex-direction: column;
+    align-items: center;
+}
+
+.userRecipes{
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+}
+
+.userRecipe-card {
+    display: flex;
+    flex-direction: row;
+}
+
+.userRecipe-card img {
+    width: 200px;
+    height: 200px;
+    background: #F7F4EA;
+    border-radius: 5px;
+    border: 3px solid #3e3330;
+    box-shadow: .5rem .5rem 0 #3e3330;
+}
+
+.information {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    width: 70%;
+}
+
+.image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.user-ingr {height: 125px;}
+.user-ingr li { list-style: none; display: inline; font-size: larger;}
+.user-ingr li:after { content: " \00b7"; }
+.user-ingr li:last-child:after { content: none; }
+
+.background-images {
+    z-index: 0;
+}
+
+#foods {
+    position: fixed;
+    object-fit: contain;
+    width: 600px;
+    height: 600px;
+    left: 90px;
+    top: 140px;
+    z-index: 2;
+}
+
+#vegs {
+    position: fixed;
+    object-fit: contain;
+    width: 300px;
+    height: 350px;
+    right: 225px;
+    top: 360px;
+    z-index: 2;
+}
+
+#hangfruit {
+    position: fixed;
+    object-fit: contain;
+    width: 350px;
+    height: 350px;
+    left: 100px;
+    top: 120px;
+}
+
+#celery {
+    position: fixed;
+    object-fit: contain;
+    width: 350px;
+    height: 300px;
+    right: 180px;
+    top: 150px;
+    transform: rotate(40deg)
+}
+
+.delete-button {
+    position: absolute;
+    cursor: pointer;
+    right: 0;
+    bottom: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.card-del-profile {
+    position: absolute;
+    width: 300px;
+    top: 20%;
+    z-index: 5;
+}
+
+.del-overlay {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    z-index: 4;
+    background-color: rgba(84, 69, 65, 0.95);
+}
+
+#del-complete:hover {
+    background-color: #b41f1f;
+    padding: 5px;
+    border: none;
+    color: #F7F4EA;
+    cursor: pointer;
+}

@@ -1,0 +1,39 @@
+
+
+
+button.tag {
+    background-color: #6A994E;
+    border: none;
+    color: #F7F4EA;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: large;
+}
+
+button.clickable:hover {
+    background-color: #58843e;
+}
+
+button.notincluded {
+    background-color: #843e3e;
+    border: none;
+    color: #F7F4EA;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: large;
+}
+
+button.badge {
+    font-size: small;
+    padding: 5px 10px;
+}

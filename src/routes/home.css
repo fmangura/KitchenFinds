@@ -1,0 +1,155 @@
+body {
+    margin: 20px;
+}
+
+.fullBody {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.left-cards {
+    width: 60%;
+}
+
+.right-cards {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.hidden {
+    display: none;
+}
+
+.recipes-list-overlay {
+    position: fixed; /* Sit on top of the page content */
+  width: 40%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  overflow-y: scroll;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(84, 69, 65, 0.95);
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+.slide {
+    left: 0;
+}
+
+.recipe-list {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* .cook-book img {
+    height: 100%;
+} */
+.cook-book {
+    display: flex;
+    width: 100%;
+}
+
+#close{
+    position: absolute;
+    right: 10px;
+    z-index: 2;
+}
+
+.full-recipe-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.pages {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.page-card {
+    width: 100%;
+    height: 200px;
+    overflow-y: scroll;
+}
+
+.page-card::-webkit-scrollbar {
+    display:block;
+}
+
+.card-image {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.page-turners {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+
+}
+
+.page-turners a:hover{
+    cursor: pointer;
+    border: none;
+    color: #69554f;
+}
+
+.recipe-instructions-overlay {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    
+    max-width: 800px;
+    max-height: 800px;
+    padding: 10px;
+    
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.90);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+    z-index: 4;
+    
+    backdrop-filter: blur(15px);
+    left: 10%;
+    right: 50%;
+}
+
+.list-of-ingredients {
+    height: 250px;
+    max-height: 250px;
+    border:  var(--color-dark) solid;
+}
+
+.cookButton:hover {
+    background-color: #3e3330;
+    color: #e6a940;
+}
+
+.addButton:hover {
+    background-color: #F7F4EA;
+    color: #3e3330;
+}
+
+
+
+
+::-webkit-scrollbar {
+    display: none;
+}

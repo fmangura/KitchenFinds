@@ -1,0 +1,200 @@
+:root {
+    --color-light: #F7F4EA;
+    --color-dark: #3e3330;
+    --color-signal: #e6a940;
+    
+    --color-background: var(--color-light);
+    --color-text: var(--color-dark);
+    --color-accent: var(--color-signal);
+    
+    --size-bezel: .5rem;
+    --size-radius: 4px;
+    
+    line-height: 1.4;
+    
+    font-family: 'Inter', sans-serif;
+    font-size: calc(.6rem + .4vw);
+    color: var(--color-text);
+    background: var(--color-background);
+    font-weight: 300;
+    padding: 0;
+
+  }
+
+mark {
+background: var(--color-accent);
+color: var(--color-text);
+font-weight: bold;
+padding: 0 0.2em;
+}
+
+.input {
+    position: relative;
+
+    &__label {
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding: calc(var(--size-bezel) * 0.75) calc(var(--size-bezel) * .5);
+        margin: calc(var(--size-bezel) * 0.75 + 3px) calc(var(--size-bezel) * .5);
+        background: pink;
+        white-space: nowrap;
+        transform: translate(0, 0);
+        transform-origin: 0 0;
+        background: var(--color-background);
+        transition: transform 120ms ease-in;
+        font-weight: bold;
+        line-height: 1.2;
+    }
+    &__field {
+        box-sizing: border-box;
+        display: block;
+        width: 100%;
+        border: 3px solid currentColor;
+        padding: calc(var(--size-bezel) * 1.5) var(--size-bezel);
+        color: currentColor;
+        background: transparent;
+        border-radius: var(--size-radius);
+        
+        &:focus,
+        &:not(:placeholder-shown) {
+        & + .input__label {
+            transform: translate(.25rem, -65%) scale(.8);
+            color: var(--color-accent);
+        }
+        }
+    }
+}
+
+.card {
+    background: var(--color-background);
+    padding: calc(4 * var(--size-bezel));
+    margin-top: calc(4 * var(--size-bezel));
+    border-radius: var(--size-radius);
+    border: 3px solid var(--color-shadow, currentColor);
+    box-shadow: .5rem .5rem 0 var(--color-shadow, currentColor);
+    width: 80%;
+
+    &--inverted {
+        --color-background: var(--color-dark);
+        color: var(--color-light);
+        --color-shadow: var(--color-accent);
+      }
+      
+    &--accent {
+    --color-background: var(--color-signal);
+    --color-accent: var(--color-light);
+    color: var(--color-dark);
+    }
+      
+    *:first-child {
+    margin-top: 0;
+    }
+}
+
+.l-design-widht {
+    max-width: 40rem;
+    padding: 1rem;
+  }
+  
+  .input {
+    position: relative;
+    
+    &__label {
+      position: absolute;
+      left: 0;
+      top: 0;
+      padding: calc(var(--size-bezel) * 0.75) calc(var(--size-bezel) * .5);
+      margin: calc(var(--size-bezel) * 0.75 + 3px) calc(var(--size-bezel) * .5);
+      background: pink;
+      white-space: nowrap;
+      transform: translate(0, 0);
+      transform-origin: 0 0;
+      background: var(--color-background);
+      transition: transform 120ms ease-in;
+      font-weight: bold;
+      line-height: 1.2;
+    }
+    &__field {
+      box-sizing: border-box;
+      display: block;
+      width: 100%;
+      border: 3px solid currentColor;
+      padding: calc(var(--size-bezel) * 1.5) var(--size-bezel);
+      color: currentColor;
+      background: transparent;
+      border-radius: var(--size-radius);
+      
+      &:focus,
+      &:not(:placeholder-shown) {
+        & + .input__label {
+          transform: translate(.25rem, -65%) scale(.8);
+          color: var(--color-accent);
+        }
+      }
+    }
+  }
+  
+  
+  .button-group {
+    margin-top: calc(var(--size-bezel) * 2.5);
+  }
+  
+  button {
+    color: currentColor;
+    padding: var(--size-bezel) calc(var(--size-bezel) * 2);
+    background: var(--color-accent);
+    border: none;
+    border-radius: var(--size-radius);
+    font-weight: 900;
+    
+    &[type=reset]{
+      background: var(--color-background);
+      font-weight: 200;
+    } 
+  }
+
+  
+  button + button {
+    margin-left: calc(var(--size-bezel) * 2);
+  }
+  
+  .icon {
+    display: inline-block;
+    width: 1em; height: 1em;
+    margin-right: .5em;
+  }
+
+.suggestions {
+    display: flex;
+    align-items: center;
+    height: 150px;
+    width: 83%;
+    max-height: 150px;
+    padding: 20px;
+}
+
+.suggestions h2 {
+    height: 100%;
+}
+
+#suggested-words{
+    height: 100%;
+    overflow: scroll;
+}
+
+.infocard {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 5px;
+    flex-direction: column;
+    width: 95%;
+    height: 90%;
+}
+
+.infocard img {
+    height: 100%;
+    width: 100%;
+}
+
