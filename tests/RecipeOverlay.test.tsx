@@ -2,7 +2,6 @@ import React from 'react';
 import { AuthContext } from '../src/context';
 import {fireEvent, getByText, queryAllByText, render, screen} from '@testing-library/react'
 import '@testing-library/jest-dom'
-import backend from '../src/api';
 import { vi } from 'vitest';
 import Recipes from '../src/components/RecipesOverlay';
 

@@ -5,7 +5,7 @@ import IngredientsTag from './IngredientTag'
 function Page({number, step, ingredients, equipment, length}) {
 
     return (
-        <div className='card page-card' style={{backgroundColor:'#FFF'}}>
+        <div className='card page-card' style={{backgroundColor:'#FFF', height:'100%'}}>
             <h5>{number}</h5>
             <p>{step}</p>
             {ingredients.length > 0 ? 

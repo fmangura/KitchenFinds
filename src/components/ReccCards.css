@@ -1,0 +1,117 @@
+.indv-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(84,69,65,0.60);
+    width: 300px;
+    height: 280px;
+    position: relative;
+    background-image: linear-gradient(180deg, rgba(245, 245, 245, 0%), rgb(255, 255, 255, 80%));
+    background-size: 35% 65%;
+    z-index: 4;
+    overflow: hidden;
+}
+
+.indv-card h5 {
+    margin: 5px;
+    z-index: 3;
+    font-size: 20px;
+    font-family: "Didact Gothic", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: 1px;
+}
+
+.indv-card img{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    border-radius: 0;
+
+    position: absolute;
+    background: linear-gradient(180deg, rgba(233,235,238,0) 100%, rgba(233,235,238,0) 100%);
+}
+
+.ingredients{
+    display: inline-block;
+    overflow: scroll;
+    width: 100%;
+}
+
+h5.recipe-name {
+    position: absolute;
+    padding: 20px 5px;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-size: 25px;
+    z-index: 3;
+    background: rgb(233,235,238);
+    background: linear-gradient(180deg, rgba(233,235,238,0) 0%, rgba(244, 245, 246, 0.927) 10%, rgba(255,255,255,1) 100%);
+    top: 125px;
+    
+    align-content: start;
+
+    -moz-box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
+    box-sizing: border-box; 
+}
+
+.top-of-card {
+    height: 150px;
+}
+
+@keyframes slideup {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes slidedown {
+    0% {
+        transform: translateY(0%);
+    }
+    100% {
+        transform: translateY(100%);
+        display: block;
+    }
+}
+
+.hideInfo {
+    animation: slidedown 0.2s forwards;
+}
+
+.showInfo {
+    animation: slideup 0.2s forwards;
+}
+
+.indv-card-text {
+    z-index: 2;
+    margin: 0;
+
+    width: 100%;
+    height: 100%;
+    background-color:  #e6a940f9;
+    position: relative;
+    z-index: 9;
+
+    overflow-y: scroll;
+
+    padding: 10px;
+    -moz-box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
+     box-sizing: border-box; 
+}
+
+.indv-card-text p{
+    font-size: 20px;
+    margin: 10px;
+}
+
+.info-icons{
+    display: flex;
+    flex-direction: row;
+}

@@ -30,7 +30,14 @@ class backend {
     // Users individual routes
 
     static async register(data) {
-        return await backend.request(`/users/register`, data, 'post').then((res => {message: 'Register Complete!'}))
+        try {
+            console.log('we are registerying')
+            return await this.request(`/users/register`, data, 'post').then((res) => {message: 'Register Complete!'})
+        } catch (err) {
+            console.log('we are having a registry error')
+            console.log(err.data)
+            return err.data
+        }
     }
 
     static async login(formData) {
@@ -117,6 +124,14 @@ class backend {
                 data: {'item': search},
                 method:'POST'
             }).then((res) => {console.log(res.data); return res.data})
+        } catch (err) {
+            return err
+        }
+    }
+
+    static async getRecommended(mealtype) {
+        try {
+            return await backend.request(`/recipes/reccs/${mealtype}`).then((res) => {return res})
         } catch (err) {
             return err
         }

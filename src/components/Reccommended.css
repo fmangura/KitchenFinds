@@ -1,0 +1,51 @@
+.reccommend-section{
+    width: 100vw;
+    height: 350px;
+    box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.21);
+
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    padding: 0 50px;
+
+    -moz-box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
+     box-sizing: border-box; 
+}
+
+.recc-title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    font-size: 40px;
+    width: 30%;
+    height: 100%;
+}
+
+.recc-cards{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 70%;
+}
+
+.recc-title h2 {
+    margin: 0;
+    font-size: 30px;
+    height: 30px;
+}
+
+.recc-title h1 {
+    font-size: 80px;
+    margin: 0;
+}
+
+.recc-title p {
+    margin: 0;
+    font-size: 25px;
+}
+

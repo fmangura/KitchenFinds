@@ -1,12 +1,14 @@
-    import React, {useState, useEffect} from 'react'
-    import { useParams } from 'react-router-dom'
-    import backend from '../api';
+    import React, {useState, useEffect, memo} from 'react'
     import Page from './Pages'
+    import Timer from '../helper/Timer'
     import IngredientsTag from './IngredientTag';
 
-    function RecipeRoute({id, name, image, recipeInfo, allIngredients}) {
+    import './Recipe.css'
+
+    function RecipeRoute({activeRecipe, rmActRecipe}) {
+        const {id, name, image, recipeInfo} = activeRecipe
         const [page, setPage] = useState(0)
-        const [currentPage, setCurrentPage] = useState(recipeInfo.steps[0])
+        const [currentPage, setCurrentPage] = useState()
         
         useEffect(() => {
             const newRecipe = () => {
@@ -14,7 +16,7 @@
                 setCurrentPage(recipeInfo.steps[page])
             }
             newRecipe();
-        },[id])
+        },[id, activeRecipe])
 
         useEffect(() => {
             const changePage = () => {
@@ -35,18 +37,27 @@
             <div className='full-recipe-card'>
                 <div className='card-image'>
                     <img src={image} alt={name} />
-                </div>
-                <h1>{name}</h1>
-                <div className='pages'>
-                    <Page number={currentPage.number} ingredients={currentPage.ingredients} equipment={currentPage.equipment} length={currentPage.length} step={currentPage.step}/>
-                    <div className='page-turners'>
-                        <a onClick={prevPage}>Prev</a>
-                        <small>{currentPage.number}/{recipeInfo.steps.length}</small>
-                        <a onClick={nextPage}>Next</a>
+                    <div className='recipe-title'>
+                        <h1>{name}</h1>
+                        <Timer />
                     </div>
+                    <i onClick={() => rmActRecipe()}>X</i>
                 </div>
+                { currentPage ?
+                    <div className='pages'>
+                        <Page number={currentPage.number} ingredients={currentPage.ingredients} equipment={currentPage.equipment} length={currentPage.length} step={currentPage.step}/>
+                        <div className='page-turners'>
+                            <a onClick={prevPage}>Prev</a>
+                            <small>{currentPage.number}/{recipeInfo.steps.length}</small>
+                            <a onClick={nextPage}>Next</a>
+                        </div>
+                    </div>
+                    :
+                    null
+                }
+
             </div>
         )
-    }
+    };
 
     export default RecipeRoute

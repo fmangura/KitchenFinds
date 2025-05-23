@@ -1,16 +1,16 @@
 
 
 .recipe-card {
-    position: sticky;
     top: 0;
-    padding: 0.1rem;
+    padding: 10px;
+    margin: 20px;
     box-shadow: 0 -0.5rem 1rem rgba(0 0 0 / 0.15);
     border-radius: 4px;
-    width: 60%;
+    width: 500px;
     max-height: 300px;
     overflow-y: hidden;
     filter: grayscale(100%);
-    background-color: #3e3330;
+    background-color: #988f8d;
     display: flex;
     flex-direction: column-reverse;
 }
@@ -21,7 +21,24 @@ i {
 }
 
 .card-body {
-    width: 75%;
+    width: 95%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body h3 {
+    margin: 0;
+    font-size: 25px;
+}
+
+.ingredients-tag-list {
+    display: block;
+    flex-direction: row;
+    overflow-wrap: normal;
+    text-align: start;
+    width: 60%;
+    height: 70px;
 }
 
 .recipe-card:hover {
@@ -29,9 +46,11 @@ i {
 }
 
 .recipe-card img {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     margin-bottom: 10px;
+    border-radius: 0;
+    
 }
 
 img {

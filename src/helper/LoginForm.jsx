@@ -1,19 +1,20 @@
 import React, {useContext, useState} from 'react';
-import useForm from '../helper/userForm'
+import useForm from './userForm'
 import { Navigate, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context';
 import backend from '../api'
-import './auth.css'
+import Register from '../routes/RegisterForm';
+import '../routes/auth.css'
+import './LoginForm.css'
 
-export default function LoginForm () {
+export default function LoginForm ({changeForm}) {
     const initialForm = {
         username: '',
         password: ''
     }
     const navigate = useNavigate();
-    const {login, isLoggedIn} = useContext(AuthContext)
+    const {login, isLoggedIn, popError} = useContext(AuthContext)
     const {formData, handleChange, resetForm} = useForm(initialForm)
-    const [errMsg, setErrMsg] = useState('')
 
     if (isLoggedIn) return <Navigate to={'/'}/>
 
@@ -27,23 +28,24 @@ export default function LoginForm () {
             login()
             navigate('/')
         } catch (err) {
-            setErrMsg(err.message)
+            popError(err.message)
         }
     }
 
     return (
-        <div className='authDiv' style={{display:'flex', flexDirection:'column', alignItems:'center'}}>
-            <div className='Authform card' style={{justifyContent:'center', display:'flex', marginBottom:'10px'}}>
-                <h1 style={{marginRight:'20px'}}>Login</h1>
-                <form onSubmit={handleSubmit}>
+        <div className='form-container' >
+            <div className='Authform'>
+                <h1 style={{marginRight:'20px', fontSize:'xx-large', color:'#6A994E'}}>Hello,</h1>
+                <p style={{fontSize:'xxx-large', marginTop:'0', marginBottom:'5px'}}>Welcome Back!</p>
+                <form onSubmit={handleSubmit} className='login-form'>
                     <label htmlFor='username' className=''>Username: </label>
-                    <input name='username' placeholder='username' id='username' onChange={handleChange} value={formData.username}></input>
+                    <input name='username' id='username' onChange={handleChange} value={formData.username}></input>
                     <label htmlFor='password'>Password: </label>
-                    <input type='password' name='password' placeholder='password' id='password' onChange={handleChange} value={formData.password}></input>
+                    <input type='password' name='password' id='password' onChange={handleChange} value={formData.password}></input>
                     <button>Login</button>
                 </form>
+                <a style={{alignSelf:'end'}} onClick={() => changeForm(<Register/>)}>new user?</a>
             </div>
-            {errMsg ? errMsg : null}
         </div>
     );
 }

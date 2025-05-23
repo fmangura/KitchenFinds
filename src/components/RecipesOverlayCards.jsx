@@ -3,11 +3,11 @@ import { AuthContext } from '../context';
 import { useNavigate } from 'react-router-dom';
 import {LiaCookieSolid, LiaCookieBiteSolid} from 'react-icons/lia'
 import backend from '../api';
-import IngredientsTag from '../components/IngredientTag';
+import IngredientsTag from './IngredientTag';
 import './recipeOverlay.css';
 
-const Recipes = ({id, image, name, ingredients, searchedFor, actRecipe, listSlider, activeRecipe}) => {
-    const {faveRecipes, addFave, delFave} = useContext(AuthContext)
+const RecipesListCard = ({id, image, name, ingredients, searchedFor, actRecipe, listSlider, activeRecipe}) => {
+    const {faveRecipes, addFave, delFave, isLoggedIn} = useContext(AuthContext)
     const [fave, setFave] = useState(() => faveRecipes.includes(id))
     const [isActive, setIsActive] = useState(actRecipe.id == id)
 
@@ -39,18 +39,22 @@ const Recipes = ({id, image, name, ingredients, searchedFor, actRecipe, listSlid
         <div className={`recipe-card card ${isActive}`} id={id} >
             <div className='card-body' onClick={sendRecipeInfo}>               
                 <h3>{name}</h3>
-                <ul style={{listStyle:'none'}}>
+                <ul className='ingredients-tag-list' style={{listStyle:'none'}}>
                     {ingredients.map(ingr => {return ingr in searchedFor ? <IngredientsTag key={ingr} ingredient={ingr} status='badge'/> : <IngredientsTag ingredient={ingr} status='notincluded badge' />})}
                 </ul>
             </div>
             <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between'}}>
             <img src={`${image}`} alt="No Image" />
-                <i onClick={toggleFave}>
-                    {fave ? <LiaCookieBiteSolid/> : <LiaCookieSolid/>}
-                </i>
+                { isLoggedIn ?                 
+                    <i onClick={toggleFave}>
+                        {fave ? <LiaCookieBiteSolid/> : <LiaCookieSolid/>}
+                    </i> 
+                    : 
+                    null
+                }
             </div>
         </div>
     )
 }
 
-export default Recipes
+export default RecipesListCard

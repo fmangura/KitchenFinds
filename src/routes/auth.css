@@ -1,23 +1,9 @@
-.Authform {
-    width: 300px;
-}
-
-.Authform form{
-    display: flex;
-    flex-direction: column;
-}
-
 .Authform input {
-    width: 200px;
+    width: 300px;
     height: 25px;
-    border-radius: 5px;
-    border: 0;
+    border: 1px solid #3e3330;
     margin-bottom: 10px;
 }
-
-/* button {
-    width: 100px;
-} */
 
 button:hover {
     color: #F7F4EA;
@@ -38,4 +24,9 @@ button:hover {
 .Authcard img{
     height: 300px;
     width: 300px;
+}
+
+p{
+    margin: 0;
+    margin-right: 10px;
 }

@@ -3,10 +3,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Auth from './components/AuthProvider'
 import Home from './routes/Home'
-import LoginForm from './routes/LoginForm'
+import Landing from './routes/Landing'
 import RegisterForm from './routes/RegisterForm'
 import Nav from './components/Nav';
-import Profile from './routes/Profile'
+import ErrorCard from './components/ErrorCard';
+import Profile from './routes/Profile';
 
 export default function App () {
 
@@ -15,10 +16,11 @@ export default function App () {
             <BrowserRouter>
                 <Auth>
                     <Nav />
+                    <ErrorCard />
                     <Routes>
                         <Route path='/' element={<Home />} />
                         <Route path='/profile' element={<Profile />} />
-                        <Route path='/login' element={<LoginForm />} />
+                        <Route path='/login' element={<Landing />} />
                         <Route path='/register' element={<RegisterForm />} />
                     </Routes>
                 </Auth>

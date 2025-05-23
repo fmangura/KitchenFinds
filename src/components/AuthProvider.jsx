@@ -8,22 +8,25 @@ const cookies = new Cookies(null, { path: '/' });
 function Auth({ children }) {
     const [currUser, setCurrUser] = useState(cookies.get('user'));
     const [isLoggedIn, setLoggedIn] = useState(!!cookies.get('user_token'));
-    const [faveRecipes, setFaveRecipes] = useState([])
+    const [faveRecipes, setFaveRecipes] = useState([]);
+    const [activeRecipe, setActiveRecipe] = useState(cookies.get('active_recipe'));
+    const [errorMsg, setErrorMsg] = useState('');
 
     const login = async () => {
         if (cookies.get('user_token')) {
-            setLoggedIn(true);
             let res = await backend.getUserRecipes()
             setFaveRecipes(res.map((recipe) => recipe.id))
             setCurrUser(cookies.get('user'))
+            setLoggedIn(!!cookies.get('user_token'));
         }
     }
 
     const logout = () => {
         if(cookies.get('user')) {
-            cookies.remove('user')
-            cookies.remove('user_token',{ path: '/' })
+            cookies.remove('user');
+            cookies.remove('user_token',{ path: '/' });
             setLoggedIn(false);
+            setCurrUser(cookies.get('user'));
         }
     }
 
@@ -37,6 +40,23 @@ function Auth({ children }) {
         setFaveRecipes(res.map((recipe) => recipe.id))
     }
 
+    const changeActive = (obj) => {
+        setActiveRecipe({})
+        cookies.set('active_recipe', obj)
+        setActiveRecipe(obj)
+    }
+
+    const rmActRecipe = () => {
+        setActiveRecipe()
+        cookies.remove('active_recipe')
+        setSlide('')
+    }
+
+    const popError = (err) => {
+        setErrorMsg(err);
+        setTimeout(() => setErrorMsg(''), 2000);
+    }
+
     return (
         <AuthContext.Provider value={{
             isLoggedIn,
@@ -46,6 +66,11 @@ function Auth({ children }) {
             faveRecipes,
             addFave,
             delFave,
+            activeRecipe,
+            changeActive,
+            rmActRecipe,
+            errorMsg,
+            popError
         }}> 
             {children}
         </AuthContext.Provider>

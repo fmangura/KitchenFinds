@@ -1,0 +1,109 @@
+.layout {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;    
+    height: 60vh;
+    margin: 50px;
+}
+
+.right-layout {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 55%;
+}
+
+.left-layout {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+img {
+    border-radius: 35px;
+    margin: 5px;
+    filter: drop-shadow(0 12px 5px rgba(0, 0, 0, 0.25));
+}
+
+span.col1 {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    width: 400px;
+    max-width: 400px;
+    animation: fadeInLeftRight ease 3s;
+}
+
+span.col2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-top: 40px;
+    width: 400px;
+    max-width: 400px;
+    animation: fadeInMid ease 3s;
+}
+
+span.col3 {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    max-width: 400px;
+    animation: fadeInLeftRight ease 3s;
+}
+
+h1 {
+    font-size: 60px;
+    font-family: "Didact Gothic", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: 1px;
+    max-height: 80%;
+    max-width: 350px;
+    margin: 0;
+    
+}
+
+span.login-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px ;
+    width: 200px;
+}
+
+button{
+    font-size: x-large;
+}
+
+a { 
+    margin-top: 5px;
+    margin-left: 5px;
+    width: 75px;
+    cursor: pointer;
+}
+
+/* ----------------------------- animations */
+
+@keyframes fadeInLeftRight {
+    0% {
+        opacity: 0;
+        width: 0px;
+    }
+    100% {
+        opacity: 1;
+        width: 400px;
+    }
+}
+@keyframes fadeInMid{
+    0% {
+        opacity: 0;
+        width: 0px;
+    }
+    100% {
+        opacity: 1;
+        width: 400px;
+    }
+}
